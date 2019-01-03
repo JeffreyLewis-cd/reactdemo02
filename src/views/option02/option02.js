@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom"
 import "./option02.scss"
 
 
@@ -17,6 +18,7 @@ class Option02 extends Component {
                         option02-body
                     </p>
                     <p>{receivedParam}</p>
+                    <Link to="/">回到homepage</Link>
                 </div>
             </div>
         )
