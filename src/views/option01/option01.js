@@ -1,15 +1,34 @@
 import React, {Component} from "react";
 import "./option01.scss"
 import {Link} from "react-router-dom";
+import ChildrenOfOption01 from "./childrenOfOption01/childrenOfOption01"
 
 class Option01 extends Component {
-    render() {
+    constructor(props) {
+        super(props);
         console.log("option01-page");
-        let receivedParam = "66";
+        this.state = {
+            receivedParam: "",
+            paramsToChildren: "paramsToChildren01",
+            dataToChildren: "dataToChildren02",
+            dataFromChild: "",
+        };
+
+    }
+
+
+    render() {
+        let receivedParam = '66';
         if (this.props.location.query) {
-            receivedParam = this.props.location.query.name;
+            receivedParam = this.props.location.query.name + '+669';
         }
-        console.log(receivedParam);
+
+        let transMsg = (msg) => {
+            console.log(msg);
+            let dataFromChild = msg;
+            console.log("data from child: " + dataFromChild);
+        };
+
         return (
             <div>
                 <div className='option01'>
@@ -18,6 +37,8 @@ class Option01 extends Component {
                     </p>
                     <p>{receivedParam}</p>
                     <Link to={{pathname: "/fullPage", query: {name: "我来自option01-666"}}}>全屏</Link>
+                    <ChildrenOfOption01 params={this.state.paramsToChildren} transMsgF={transMsg}
+                                        data2={this.state.dataToChildren}></ChildrenOfOption01>
                 </div>
             </div>
         )
