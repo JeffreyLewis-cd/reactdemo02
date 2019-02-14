@@ -3,6 +3,7 @@ import 'es6-promise';
 
 let pubAPI = {};
 let baseURL = "http://60.205.230.137:19207/boot";
+let pubAuthorization="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTMSIsInd5cXd5cXd5cSI6Im15M2J2eCIsIkhJVkVfVE9LRU4iOiIyNmM1MDdjNjZjYjk4ZWQyMDAyZGM1MjdkZjAwMmRiYSIsImV4cCI6MTU0NzcwNTI1NiwiaWF0IjoxNTQ3NjE4ODU2fQ.Uxx1R5pmHCnDyt3Wy9d3iH_NCF9FL1F_Dn7YwtogvNveCaa4HexGJHFXps5oraTyWbGhZ04Q_h20bOhL0Ugf2Q";
 
 pubAPI.get = (url) => {
     let getURL = baseURL + url;
@@ -10,7 +11,7 @@ pubAPI.get = (url) => {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json;charset=UTF-8',
-            'Authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTMSIsInd5cXd5cXd5cSI6Im15M2J2eCIsIkhJVkVfVE9LRU4iOiIyNmM1MDdjNjZjYjk4ZWQyMDAyZGM1MjdkZjAwMmRiYSIsImV4cCI6MTU0NzcwNTI1NiwiaWF0IjoxNTQ3NjE4ODU2fQ.Uxx1R5pmHCnDyt3Wy9d3iH_NCF9FL1F_Dn7YwtogvNveCaa4HexGJHFXps5oraTyWbGhZ04Q_h20bOhL0Ugf2Q',
+            'Authorization': pubAuthorization,
         },
     }).then(response => response.json());
     return fetchGet;
@@ -23,7 +24,7 @@ pubAPI.post = (url, paramsObj) => {
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json;charset=UTF-8',
-            'Authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJTMSIsInd5cXd5cXd5cSI6Im15M2J2eCIsIkhJVkVfVE9LRU4iOiIyNmM1MDdjNjZjYjk4ZWQyMDAyZGM1MjdkZjAwMmRiYSIsImV4cCI6MTU0NzcwNTI1NiwiaWF0IjoxNTQ3NjE4ODU2fQ.Uxx1R5pmHCnDyt3Wy9d3iH_NCF9FL1F_Dn7YwtogvNveCaa4HexGJHFXps5oraTyWbGhZ04Q_h20bOhL0Ugf2Q',
+            'Authorization': pubAuthorization,
         },
         body: JSON.stringify(paramsObj),
     }).then(response => response.json());

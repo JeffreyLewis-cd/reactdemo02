@@ -61,15 +61,15 @@ class FullPage extends Component {
 
         return (
             <div className="fullPage">
-                <p>全屏显示-66</p>
+                <h1>全屏显示-66</h1>
                 <p>{receivedParam}</p>
                 <Link to={"/backend/"}>跳转到后台</Link>
                 <br/>
-                <Button type="primary" onClick={this.getFetchData}>测试fetch获取数据-get</Button>
+                <Button type="primary" onClick={this.getFetchData} className="pubBtn">测试fetch获取数据-get</Button>
                 <br/>
-                <Button type="primary" onClick={this.postFetchData}>测试fetch获取数据-post</Button>
+                <Button type="primary" onClick={this.postFetchData} className="pubBtn">测试fetch获取数据-post</Button>
                 <br/>
-                <Button type="primary" onClick={this.testFetchAsync}>测试async</Button>
+                <Button type="primary" onClick={this.testFetchAsync} className="pubBtn">测试async</Button>
             </div>
         )
     }
