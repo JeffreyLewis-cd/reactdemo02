@@ -3,15 +3,12 @@ import React, {Component} from "react"
 class ChildrenOfOption01 extends Component {
     constructor(props) {
         super(props);
-        console.log("ChildrenOfOption01-element");
-        console.log(this.props);
     }
 
     childToParent = () => {
         console.log("子传父");
         this.props.transMsgF("Hello-666-999");
     };
-
 
     render() {
         return (
