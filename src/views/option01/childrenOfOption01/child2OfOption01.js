@@ -19,6 +19,11 @@ class TemperatureInput extends React.Component {
     }
 
     handleChange(e) {
+        console.log('e.target.value:  ' + e.target.value);
+        console.log('handleChange:  ' + this.state);
+        console.log('handleChange-+ this.props:  ');
+        console.log(this.props);
+
         this.props.onTemperatureChange(e.target.value);
     }
 
@@ -29,7 +34,7 @@ class TemperatureInput extends React.Component {
             <fieldset>
                 <legend>Enter temperature in {scaleNames[scale]}:</legend>
                 <input value={temperature}
-                       onChange={this.handleChange} />
+                       onChange={this.handleChange}/>
             </fieldset>
         );
     }
@@ -44,16 +49,23 @@ class Calculator extends React.Component {
     }
 
     handleCelsiusChange(temperature) {
+        console.log("handleCelsiusChange:  " + temperature);
+        console.log(this.state);
         this.setState({scale: 'c', temperature});
     }
 
     handleFahrenheitChange(temperature) {
+        console.log("handleFahrenheitChange:  " + temperature);
+        console.log(this.state);
         this.setState({scale: 'f', temperature});
     }
 
     render() {
         const scale = this.state.scale;
         const temperature = this.state.temperature;
+        console.log("Calculator_:  ");
+        console.log(this.state);
+
         const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
         const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
 
@@ -62,15 +74,15 @@ class Calculator extends React.Component {
                 <TemperatureInput
                     scale="c"
                     temperature={celsius}
-                    onTemperatureChange={this.handleCelsiusChange} />
+                    onTemperatureChange={this.handleCelsiusChange}/>
 
                 <TemperatureInput
                     scale="f"
                     temperature={fahrenheit}
-                    onTemperatureChange={this.handleFahrenheitChange} />
+                    onTemperatureChange={this.handleFahrenheitChange}/>
 
                 <BoilingVerdict
-                    celsius={parseFloat(celsius)} />
+                    celsius={parseFloat(celsius)}/>
 
             </div>
         );
