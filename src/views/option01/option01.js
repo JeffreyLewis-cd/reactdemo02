@@ -3,6 +3,7 @@ import "./option01.scss"
 import {Link} from "react-router-dom";
 import ChildrenOfOption01 from "./childrenOfOption01/childrenOfOption01";
 import Child2OfOption01 from "./childrenOfOption01/child2OfOption01";
+import Child3OfOption01 from "./childrenOfOption01/child3OfOption01";
 
 class Option01 extends Component {
     constructor(props) {
@@ -41,6 +42,7 @@ class Option01 extends Component {
                     <ChildrenOfOption01 params={this.state.paramsToChildren} transMsgF={transMsg}
                                         data2={this.state.dataToChildren}></ChildrenOfOption01>
                     <Child2OfOption01></Child2OfOption01>
+                    <Child3OfOption01></Child3OfOption01>
                 </div>
             </div>
         )

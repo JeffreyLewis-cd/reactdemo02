@@ -19,12 +19,7 @@ class TemperatureInput extends React.Component {
     }
 
     handleChange(e) {
-        console.log('e.target.value:  ' + e.target.value);
-        console.log('handleChange:  ' + this.state);
-        console.log('handleChange-+ this.props:  ');
-        console.log(this.props);
-
-        this.props.onTemperatureChange(e.target.value);
+        this.props.onTemperatureChange666(e.target.value);
     }
 
     render() {
@@ -49,37 +44,30 @@ class Calculator extends React.Component {
     }
 
     handleCelsiusChange(temperature) {
-        console.log("handleCelsiusChange:  " + temperature);
-        console.log(this.state);
-        this.setState({scale: 'c', temperature});
+        this.setState({scale: 'c', temperature: temperature});
     }
 
     handleFahrenheitChange(temperature) {
-        console.log("handleFahrenheitChange:  " + temperature);
-        console.log(this.state);
-        this.setState({scale: 'f', temperature});
+        this.setState({scale: 'f', temperature: temperature});
     }
 
     render() {
         const scale = this.state.scale;
         const temperature = this.state.temperature;
-        console.log("Calculator_:  ");
-        console.log(this.state);
 
         const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
         const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
-
         return (
             <div>
                 <TemperatureInput
                     scale="c"
                     temperature={celsius}
-                    onTemperatureChange={this.handleCelsiusChange}/>
+                    onTemperatureChange666={this.handleCelsiusChange}/>
 
                 <TemperatureInput
                     scale="f"
                     temperature={fahrenheit}
-                    onTemperatureChange={this.handleFahrenheitChange}/>
+                    onTemperatureChange666={this.handleFahrenheitChange}/>
 
                 <BoilingVerdict
                     celsius={parseFloat(celsius)}/>
