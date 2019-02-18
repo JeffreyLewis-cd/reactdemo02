@@ -1,5 +1,4 @@
-import React, {Component} from "react";
-
+import React, {Component, Fragment} from "react";
 
 function FancyBorder(props) {
     return (
@@ -32,8 +31,93 @@ function WelcomeDialog() {
     );
 }
 
-function Contacts() {
-    return <div className="Contacts"><span>Contacts</span></div>;
+
+function Glossary(props) {
+    function gloClick() {
+        props.gloClickParent();
+    }
+
+    return (
+        <dl>
+            {props.items.map(item => (
+                // Fragments should also have a `key` prop when mapping collections
+                <Fragment key={item.id}>
+                    <dt>{item.term}</dt>
+                    <dd onClick={gloClick}>{item.description}</dd>
+                </Fragment>
+            ))}
+        </dl>
+    );
+}
+
+
+class CustomTextInput extends React.Component {
+    constructor(props) {
+        super(props);
+        // create a ref to store the textInput DOM element
+        this.textInput = React.createRef();
+        this.focusTextInput = this.focusTextInput.bind(this);
+    }
+
+    focusTextInput() {
+        // Explicitly focus the text input using the raw DOM API
+        // Note: we're accessing "current" to get the DOM node
+        this.textInput.current.focus();
+    }
+
+
+    render() {
+        // tell React that we want to associate the <input> ref
+        // with the `textInput` that we created in the constructor
+        let GlossaryList = [
+            {
+                id: 0,
+                term: "水果",
+                description: "富含维生素"
+            }
+        ];
+        return (
+            <div>
+                <input
+                    type="text"
+                    ref={this.textInput}/>
+
+                <input
+                    type="button"
+                    value="Focus the text input"
+                    onClick={this.focusTextInput}
+                />
+                <span onClick={this.focusTextInput}>Focus Test</span>
+                <Glossary items={GlossaryList} gloClickParent={this.focusTextInput}></Glossary>
+            </div>
+        );
+    }
+}
+
+
+class Contacts extends React.Component {
+    constructor(props) {
+        super(props);
+        this.cusInput = React.createRef();
+    }
+
+    clickLabel = () => {
+        console.log(this.cusInput);
+        this.cusInput.current.focusTextInput();
+    };
+
+    render() {
+        return (
+            <div className="Contacts">
+                <span onClick={this.clickLabel}>Contacts</span><br/>
+                <label htmlFor="namedInput">Name:</label>
+                <input id="namedInput" type="text" name="name"/>
+                <CustomTextInput ref={this.cusInput}></CustomTextInput>
+            </div>
+        );
+    }
+
+
 }
 
 function Chat() {
@@ -45,6 +129,8 @@ function Chat() {
 
 
 function SplitPane(props) {
+
+
     return (
         <div className="SplitPane">
             <div className="SplitPane-left">

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import "./option02.scss";
+import Child1OfOption2 from "./children/child1OfOption2"
 
 
 class EssayForm extends React.Component {
@@ -28,9 +29,9 @@ class EssayForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Essay:
-                    <textarea value={this.state.value} onChange={this.handleChange} />
+                    <textarea value={this.state.value} onChange={this.handleChange}/>
                 </label>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit"/>
             </form>
         );
     }
@@ -66,7 +67,7 @@ class FlavorForm extends React.Component {
                         <option value="mango">Mango</option>
                     </select>
                 </label>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit"/>
             </form>
         );
     }
@@ -84,13 +85,20 @@ class Option02 extends Component {
         return (
             <div>
                 <div className='option02'>
-                    <p>
-                        option02-body
-                    </p>
-                    <p>{receivedParam}</p>
-                    <Link to="/">回到homepage</Link>
-                    <EssayForm/>
-                    <FlavorForm/>
+                    <div className='left'>
+                        <input type='text' autoFocus/>
+                        <Child1OfOption2></Child1OfOption2>
+                    </div>
+                    <div className='right'>
+                        <p>
+                            option02-body
+                        </p>
+                        <p>{receivedParam}</p>
+                        <Link to="/">回到homepage</Link>
+                        <EssayForm/>
+                        <FlavorForm/>
+                    </div>
+
                 </div>
             </div>
         )

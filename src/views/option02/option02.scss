@@ -1,3 +1,5 @@
+$height01: 200px;
+
 .option02 {
   width: calc(100% - 202px);
   height: calc(100vh - 64px);
@@ -5,4 +7,17 @@
   padding: 0 20px;
   float: right;
   background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  .left {
+    width: 50%;
+    background-color: pink;
+    min-height: $height01;
+  }
+  .right {
+    width: 50%;
+    background-color: lightsalmon;
+    min-height: $height01;
+  }
 }
