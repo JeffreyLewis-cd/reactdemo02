@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import "./option02.scss";
 import Child1OfOption2 from "./children/child1OfOption2"
+import ContextExample from "./children/context/contextExample"
 
 
 class EssayForm extends React.Component {
@@ -88,6 +89,7 @@ class Option02 extends Component {
                     <div className='left'>
                         <input type='text' autoFocus/>
                         <Child1OfOption2></Child1OfOption2>
+                        <ContextExample></ContextExample>
                     </div>
                     <div className='right'>
                         <p>
@@ -98,7 +100,6 @@ class Option02 extends Component {
                         <EssayForm/>
                         <FlavorForm/>
                     </div>
-
                 </div>
             </div>
         )
