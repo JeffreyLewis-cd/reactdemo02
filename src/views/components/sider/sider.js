@@ -25,6 +25,9 @@ class Sider extends Component {
         else if ('1' === item.key) {
             this.context.router.history.push({pathname: "/backend/option01", query: {name: "option1-1111"}})
         }
+        else if ('3' === item.key) {
+            this.context.router.history.push({pathname: "/backend/option03", query: {name: "option3-33"}})
+        }
     };
 
     render() {

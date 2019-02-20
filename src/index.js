@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {Option01, Option02, FullPage, Home,} from "./router/async"
+import {HashRouter, Switch, Route} from 'react-router-dom';
+import {Option01, Option02, Option03, FullPage, Home,} from "./router/async"
 import Header from "./views/components/header/header"
 import Sider from "./views/components/sider/sider"
 
@@ -16,12 +16,13 @@ const BackendEle = ({match}) => (
             <Route path={`${match.url}`} exact component={App}></Route>
             <Route path={`${match.url}/option01`} exact component={Option01}></Route>
             <Route path={`${match.url}/option02`} exact component={Option02}></Route>
+            <Route path={`${match.url}/option03`} exact component={Option03}></Route>
         </Switch>
     </div>
 );
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
         <div>
             <Switch>
                 <Route path="/" exact component={Home}/>
@@ -29,7 +30,7 @@ ReactDOM.render(
                 <Route path="/backend" component={BackendEle}/>
             </Switch>
         </div>
-    </BrowserRouter>
+    </HashRouter>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

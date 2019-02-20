@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from "react";
 
+
 function FancyBorder(props) {
     return (
         <div className={'FancyBorder FancyBorder-' + props.color}>
@@ -120,17 +121,21 @@ class Contacts extends React.Component {
 
 }
 
-function Chat() {
-    return <div className="Chat">
-        <span>Chat</span>
-        <WelcomeDialog></WelcomeDialog>
-    </div>;
+
+class Chat extends React.Component {
+
+
+    render() {
+        return <div className="Chat">
+            <span>Chat</span>
+            <WelcomeDialog></WelcomeDialog>
+
+        </div>;
+    }
 }
 
 
 function SplitPane(props) {
-
-
     return (
         <div className="SplitPane">
             <div className="SplitPane-left">
@@ -142,7 +147,6 @@ function SplitPane(props) {
         </div>
     );
 }
-
 
 class Child3OfOption01 extends Component {
     constructor(props) {
