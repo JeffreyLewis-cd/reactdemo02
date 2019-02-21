@@ -9,14 +9,12 @@ import Child3OfOption01 from "./childrenOfOption01/child3OfOption01";
 class Option01 extends Component {
     constructor(props) {
         super(props);
-        console.log("option01-page");
         this.state = {
             receivedParam: "",
             paramsToChildren: "paramsToChildren01",
             dataToChildren: "dataToChildren02",
             dataFromChild: "",
         };
-
     }
 
 
@@ -27,9 +25,7 @@ class Option01 extends Component {
         }
 
         let transMsg = (msg) => {
-            console.log(msg);
             let dataFromChild = msg;
-            console.log("data from child: " + dataFromChild);
         };
 
         return (

@@ -17,8 +17,6 @@ class Sider extends Component {
     };
 
     moveToOption = (item) => {
-        console.log("moveToOption-函数");
-        console.log(item);
         if ('2' === item.key) {
             this.context.router.history.push({pathname: "/backend/option02", query: {name: "option2-2222"}})
         }
