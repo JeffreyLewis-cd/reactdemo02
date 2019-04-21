@@ -3,10 +3,12 @@ import FancyButton from "./children/fancyButton";
 import fragments from './children/columns';
 import HigherOrderComponents from "./children/higherOrderComponents";
 import './option03.scss';
-import Example from './children/example';
+import Example from './children02/example';
 import ParagraphView from './children/paragraphView';
 import Backbone from 'backbone';
-import Example2 from './children/example2';
+import Example2 from './children02/example2';
+import Parent from './children02/portals';
+import ModalRoot from './children02/modalRoot';
 
 
 let Colums = fragments.col;
@@ -35,19 +37,21 @@ class Option03 extends React.Component {
 
     componentDidMount() {
 
+
     }
 
     render() {
         const collection = new Backbone.Collection([
-            new Backbone.Model({ text: 'A' }),
-            new Backbone.Model({ text: 'B' }),
-            new Backbone.Model({ text: 'C' })
+            new Backbone.Model({text: 'A'}),
+            new Backbone.Model({text: 'B'}),
+            new Backbone.Model({text: 'C'})
         ]);
 
 
         // 直接使用ref={this.fancyButtonRef}
         return (
             <div className='option03'>
+
                 <div className='left'>
                     <FancyButton ref={this.fancyButtonRef}>子组件</FancyButton>
                     <table>
@@ -59,6 +63,9 @@ class Option03 extends React.Component {
                     </table>
                     <Glossary items={animals}></Glossary>
                     <HigherOrderComponents className='HOC'></HigherOrderComponents>
+
+                    {/*<Parent></Parent>*/}
+                    <ModalRoot></ModalRoot>
                 </div>
                 <div className='right'>
                     <Example></Example>
